@@ -46,7 +46,6 @@ async function socialSignIn(provider) {
   if (error) showStatus(error.message || "Could not start sign-in. Check the provider configuration.");
 }
 $("googleSignIn").addEventListener("click", () => socialSignIn("google"));
-$("githubSignIn").addEventListener("click", () => socialSignIn("github"));
 $("emailMethod").addEventListener("click", () => setMethod("email"));
 $("phoneMethod").addEventListener("click", () => setMethod("phone"));
 signInTab.addEventListener("click", () => setMode("signin"));
