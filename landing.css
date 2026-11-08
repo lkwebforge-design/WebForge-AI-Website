@@ -1,4 +1,4 @@
-:root{--lab-white:#fff;--lab-black:#090b09;--lab-green:#16834a;--lab-green-dark:#086b39;--lab-soft:#f5f8f5;--lab-line:#e5ebe6;--lab-muted:#606a63;--lab-display:"Google Sans Flex","Arial",sans-serif;--lab-body:"Google Sans Text","Arial",sans-serif}
+:root{--lab-white:#fff;--lab-black:#090b09;--lab-green:#16834a;--lab-green-dark:#086b39;--lab-soft:#f5f8f5;--lab-line:#e5ebe6;--lab-muted:#606a63;--lab-display:"Google Sans Flex","Arial",sans-serif;--lab-body:"Google Sans Flex","Arial",sans-serif}
 .landing-page{margin:0;background:#fff;color:#090b09;font-family:var(--lab-body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
 .landing-page *{box-sizing:border-box}.landing-page a{color:inherit;text-decoration:none}.landing-page button,.landing-page textarea{font:inherit}
 .landing-page .lab-header{height:78px;position:sticky;top:0;z-index:60;background:rgba(255,255,255,.92);backdrop-filter:blur(18px);border-bottom:1px solid #edf0ed}
