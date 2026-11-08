@@ -1,71 +1,66 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080b09">
-<meta name="description" content="WebForge AI brings an organized AI workforce together around your goals. Meet your CEO, coordinate departments and track work in one place.">
-<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css?v=20261108-3"><title>WebForge AI — Explore what you can create.</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#ffffff">
+<meta name="description" content="WebForge AI is an AI-powered company workspace. Give your CEO a goal and let coordinated AI teams plan the work.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400;6..144,500;6..144,600;6..144,700&family=Google+Sans+Text:opsz,wght@6..18,400;6..18,500;6..18,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css?v=20261108-4"><link rel="stylesheet" href="/landing.css?v=20261108-1">
+<title>WebForge AI — A company that moves with your ideas.</title>
 </head>
-<body>
-<header class="site-header"><div class="nav-wrap">
-<a class="brand" href="#home" aria-label="WebForge AI home"><span class="brand-symbol">W</span><span>webforge<span class="brand-green">.ai</span></span></a>
-<button class="mobile-menu" id="mobileMenu" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
-<nav class="main-nav" id="mainNav"><a href="#how">How it works</a><a href="#departments">Departments</a><a href="#workspace">Your workspace</a><a href="#about">About</a></nav>
-<div class="nav-right"><a class="nav-dashboard" href="dashboard.html">Company HQ</a><a class="signin-button" href="auth.html" id="signInLater">Sign in <span>↗</span></a></div>
+<body class="landing-page">
+<header class="lab-header"><div class="lab-nav">
+<a class="lab-brand" href="#home" aria-label="WebForge AI"><span class="lab-mark">W</span><span>webforge<span>.ai</span></span></a>
+<button class="lab-menu" id="mobileMenu" aria-label="Open navigation" aria-expanded="false"><i></i><i></i></button>
+<nav class="lab-links" id="mainNav"><a href="#how">How it works</a><a href="#teams">AI teams</a><a href="#principles">Our approach</a></nav>
+<div class="lab-actions"><a class="lab-hq" href="dashboard.html">Company HQ</a><a class="lab-signin" href="auth.html" id="signInLater">Sign in <span>↗</span></a></div>
 </div></header>
 <main id="home">
-<section class="chat-section page-width" id="ceo-chat">
-<div class="chat-heading"><div><div class="eyebrow">START HERE</div><h2>What would you like to achieve?</h2><p>Tell your CEO the outcome. We'll show you how the team could organize the work.</p></div><div class="chat-heading-badge"><span class="ceo-avatar">W</span><span><b>Your CEO</b><small>Executive workspace · live AI</small></span></div></div>
-<div class="chat-card"><div class="chat-messages" id="chatMessages"><div class="message-row"><span class="message-avatar">W</span><div class="message-content"><small>WEBFORGE AI · CEO</small><p>Hi! I'm your CEO. Tell me what you're working towards — a business idea, a launch, research or a project. I'll map out which teams should help and what the first steps could look like.</p></div></div></div>
-<div class="quick-prompts"><span>TRY AN EXAMPLE</span><button data-prompt="I want to launch a modern clothing brand.">Launch a clothing brand</button><button data-prompt="Research the market for a healthy meal-prep business.">Research a business idea</button><button data-prompt="Create a marketing plan for my new product.">Plan a marketing campaign</button></div>
-<form class="chat-input-area" id="chatForm"><label class="sr-only" for="chatInput">Describe your goal</label><textarea id="chatInput" rows="2" maxlength="600" placeholder="Describe what you want to achieve..." required></textarea><div class="chat-input-footer"><span>↳ Your CEO will organize the next steps</span><button class="send-button" type="submit" aria-label="Send goal">Send <span>↑</span></button></div></form>
-<div class="chat-disclaimer">Sign in to talk to your live CEO. Project execution and team orchestration are being built in stages.</div></div>
-</section>
-<section class="hero page-width">
-<div class="hero-intro">
-<div class="eyebrow"><span class="eyebrow-dot"></span> YOUR AI COMPANY, ORGANIZED</div>
-<h1>Big goals deserve<br><span>a whole team.</span></h1>
-<p>Meet your AI CEO. Share what you want to achieve, and see how a coordinated team can plan the work, bring in specialists and keep everything moving.</p>
-<div class="hero-actions"><a class="btn btn-primary" href="#ceo-chat">Start with your CEO <span>↗</span></a><a class="plain-link" href="#how">See how it works <span>→</span></a></div>
-<div class="hero-assurance"><span class="assurance-icon">✓</span> One clear point of contact <span class="assurance-sep">·</span> Full work visibility</div>
+<section class="lab-hero">
+<div class="lab-hero-copy">
+<div class="lab-kicker"><span></span> INTRODUCING WEBFORGE AI</div>
+<h1>Your ideas.<br><em>Entire teams.</em><br>One direction.</h1>
+<p class="lab-lede">An AI company built around your ambition. Meet your CEO, bring in specialists and turn ambitious goals into coordinated work.</p>
+<div class="lab-hero-actions"><a class="lab-primary" href="#ceo-chat">Meet your CEO <span>↗</span></a><a class="lab-text-link" href="#how">Explore how it works <span>→</span></a></div>
+<div class="lab-proof"><span class="lab-proof-dot"></span> One CEO. Six departments. A connected workforce.</div>
 </div>
-<div class="hero-visual" aria-label="Illustration of the WebForge AI company workspace">
-<div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
-<div class="workspace-preview">
-<div class="preview-top"><div class="preview-brand"><span class="preview-mark">W</span> Company workspace</div><span class="preview-status"><i></i> Workspace overview</span></div>
-<div class="preview-content">
-<aside class="preview-rail"><span class="rail-active">⌂</span><span>▦</span><span>◈</span><span>◷</span><span>▤</span><span class="rail-bottom">⚙</span></aside>
-<div class="preview-main"><div class="preview-welcome"><div><small>YOUR COMPANY AT A GLANCE</small><strong>Good morning.</strong></div><span class="preview-user">F</span></div>
-<div class="preview-ceo"><span class="ceo-avatar">W</span><div><small>YOUR AI CEO</small><b>Ready to organize your next goal.</b><span>6 departments · coordinated work</span></div><span class="available-pill"><i></i> Ready</span></div>
-<div class="preview-metrics"><div><small>PROJECTS</small><b>04</b><span>Organized workspaces</span></div><div><small>OPEN TASKS</small><b>18</b><span>Across departments</span></div><div><small>FOR REVIEW</small><b>06</b><span>Awaiting quality checks</span></div></div>
-<div class="preview-activity-title"><b>Department activity</b><a href="dashboard.html">View workspace →</a></div>
-<div class="preview-depts"><div><i class="dot-green"></i><span>Creative</span><div class="progress"><i style="width:78%"></i></div><small>78%</small></div><div><i class="dot-blue"></i><span>Business</span><div class="progress blue-progress"><i style="width:62%"></i></div><small>62%</small></div><div><i class="dot-purple"></i><span>Marketing</span><div class="progress purple-progress"><i style="width:46%"></i></div><small>46%</small></div></div>
-<div class="preview-feed"><span class="feed-check">✓</span><span><b>Creative team</b> · Visual direction submitted</span><small>Sample</small></div>
-</div></div></div>
-<div class="float-note note-top"><span class="note-icon green-note">✓</span><span><small>MANAGER REVIEW</small><b>Quality checked</b></span></div>
-<div class="float-note note-bottom"><span class="note-icon blue-note">✳</span><span><small>AI WORKFORCE</small><b>One coordinated team</b></span></div>
+<div class="lab-hero-art" aria-label="Abstract WebForge AI visual">
+<div class="lab-orbit lab-orbit-a"></div><div class="lab-orbit lab-orbit-b"></div>
+<div class="lab-core"><span class="core-ring"></span><span class="core-w">W</span><span class="core-caption">INTELLIGENCE IN MOTION</span></div>
+<div class="orbit-node node-one"><span>✳</span><b>CREATIVE</b></div>
+<div class="orbit-node node-two"><span>⌘</span><b>DEVELOPMENT</b></div>
+<div class="orbit-node node-three"><span>↗</span><b>GROWTH</b></div>
+<div class="orbit-node node-four"><span>◎</span><b>OPERATIONS</b></div>
+<div class="art-index">WF—001 <span>THE AI COMPANY</span></div>
 </div>
 </section>
-<div class="trust-strip"><div class="page-width trust-strip-inner"><span><i>✓</i> CEO-led planning</span><span><i>✓</i> Visible task ownership</span><span><i>✓</i> Human approval for important actions</span><span><i>✓</i> Reviewed deliverables</span></div></div>
-<section class="section page-width" id="how"><div class="section-eyebrow">A CLEAR WAY OF WORKING</div><div class="section-heading"><div><h2>From one idea<br>to organized action.</h2></div><p>You don't need to manage a dozen tools or coordinate every specialist yourself. Your CEO creates the plan and keeps the organization aligned.</p></div>
-<div class="steps-grid"><article><span class="step-num">01</span><div class="step-icon">✎</div><h3>Share the goal</h3><p>Describe the outcome in everyday language. Your CEO identifies what needs to happen.</p><small>YOUR DIRECTION</small></article><article><span class="step-num">02</span><div class="step-icon">⌘</div><h3>Get a clear plan</h3><p>Your CEO breaks the goal into tasks, owners, priorities and dependencies.</p><small>CEO PLANNING</small></article><article><span class="step-num">03</span><div class="step-icon">◈</div><h3>Teams work together</h3><p>Department managers coordinate specialists and track their progress.</p><small>COORDINATED WORK</small></article><article><span class="step-num">04</span><div class="step-icon">✓</div><h3>Review the result</h3><p>Managers check their work. Your CEO reviews the complete deliverable before handoff.</p><small>QUALITY & DELIVERY</small></article></div></section>
-<section class="departments-section" id="departments"><div class="page-width"><div class="section-eyebrow">THE ORGANIZATION</div><div class="section-heading"><div><h2>Six teams.<br>Different strengths.</h2></div><p>Each department has a clear manager, specialist roles and a defined responsibility within your project.</p></div>
-<div class="department-grid">
-<article class="department-card"><span class="department-icon creative-icon">✳</span><small>01 · CREATIVE</small><h3>Creative</h3><p>Brand identity, visual direction, graphic concepts and creative assets.</p><div class="tag-list"><span>Branding</span><span>Visual concepts</span><span>Creative</span></div></article>
-<article class="department-card"><span class="department-icon development-icon">⌘</span><small>02 · DEVELOPMENT</small><h3>Development</h3><p>Product architecture, website briefs, sitemaps and technical specifications.</p><div class="tag-list"><span>Architecture</span><span>Product specs</span><span>Planning</span></div></article>
-<article class="department-card"><span class="department-icon business-icon">◉</span><small>03 · BUSINESS</small><h3>Business</h3><p>Market research, business models, competitor insights and pricing strategy.</p><div class="tag-list"><span>Research</span><span>Strategy</span><span>Pricing</span></div></article>
-<article class="department-card"><span class="department-icon marketing-icon">↗</span><small>04 · MARKETING</small><h3>Marketing</h3><p>Positioning, copywriting, SEO, social campaigns and content calendars.</p><div class="tag-list"><span>SEO</span><span>Campaigns</span><span>Content</span></div></article>
-<article class="department-card"><span class="department-icon docs-icon">▤</span><small>05 · DOCUMENTATION</small><h3>Documentation</h3><p>Clear reports, presentations, spreadsheets and structured project documents.</p><div class="tag-list"><span>Reports</span><span>Presentations</span><span>Files</span></div></article>
-<article class="department-card"><span class="department-icon operations-icon">◎</span><small>06 · OPERATIONS</small><h3>Operations</h3><p>Coordination, scheduling, quality audits and resource planning.</p><div class="tag-list"><span>Quality</span><span>Planning</span><span>Coordination</span></div></article>
-</div></div></section>
-<section class="section page-width" id="workspace"><div class="section-eyebrow">YOUR COMPANY HQ</div><div class="section-heading"><div><h2>Know what's happening.<br>Without chasing updates.</h2></div><p>Your workspace brings projects, tasks, departments, workforce activity and deliverables together in one easy-to-follow dashboard.</p></div>
-<div class="hq-feature"><div class="hq-copy"><div class="hq-feature-icon">▦</div><h3>A calmer way to manage complex work.</h3><p>Open a project, see who's responsible, follow its progress and review completed work. The dashboard is designed to make a large AI organization feel straightforward.</p><ul><li>Project overview and milestones</li><li>Task board with clear statuses</li><li>Department and specialist activity</li><li>Deliverables and review history</li></ul><a class="btn btn-primary" href="dashboard.html">Explore dashboard preview <span>↗</span></a></div>
-<div class="hq-snapshot"><div class="snapshot-top"><b>Workspace overview</b><span>Sample data</span></div><div class="snapshot-cards"><div><small>ACTIVE PROJECTS</small><b>04</b></div><div><small>OPEN TASKS</small><b>18</b></div><div><small>IN REVIEW</small><b>06</b></div></div><div class="snapshot-row"><span class="snapshot-icon">C</span><span><b>Brand launch research</b><small>Business team · 4 tasks</small></span><em>In progress</em></div><div class="snapshot-row"><span class="snapshot-icon purple-snap">M</span><span><b>Campaign direction</b><small>Marketing team · 3 tasks</small></span><em class="review-label">Under review</em></div><div class="snapshot-row"><span class="snapshot-icon blue-snap">D</span><span><b>Product requirements</b><small>Development · 5 tasks</small></span><em>Assigned</em></div></div></div>
+<section class="lab-prompt-section" id="ceo-chat">
+<div class="lab-section-top"><div><div class="lab-kicker">01 / START A CONVERSATION</div><h2>Give your CEO<br>something to build on.</h2></div><p>Start with the outcome. Your CEO will understand the goal, identify the teams you need and map out the first moves.</p></div>
+<div class="lab-chat-shell">
+<div class="lab-chat-head"><div class="lab-ceo-id"><span class="lab-ceo-mark">W</span><span><b>WebForge CEO</b><small>YOUR EXECUTIVE AI</small></span></div><span class="lab-live"><i></i> READY TO LISTEN</span></div>
+<div class="chat-messages" id="chatMessages"><div class="message-row"><span class="message-avatar">W</span><div class="message-content"><small>WEBFORGE AI · CEO</small><p>Welcome. What are we working towards? Tell me the outcome, and I'll help shape the plan with the right teams.</p></div></div></div>
+<div class="lab-examples"><span>TRY ASKING</span><button data-prompt="I want to launch a modern clothing brand.">Launch a clothing brand</button><button data-prompt="Research the market for a healthy meal-prep business.">Explore a business idea</button><button data-prompt="Create a marketing plan for my new product.">Plan a campaign</button></div>
+<form class="chat-input-area lab-chat-form" id="chatForm"><label class="sr-only" for="chatInput">Describe your goal</label><textarea id="chatInput" rows="2" maxlength="600" placeholder="Describe the idea, goal or challenge..." required></textarea><div class="chat-input-footer"><span>↳ Your CEO will take it from here</span><button class="send-button" type="submit" aria-label="Send goal">Send <span>↑</span></button></div></form>
+<div class="chat-disclaimer">Sign in to talk to your live CEO. Autonomous project execution is being introduced in stages.</div>
+</div>
 </section>
-<section class="control-section" id="about"><div class="page-width control-grid"><div><div class="section-eyebrow">AUTONOMY WITH ACCOUNTABILITY</div><h2>Your CEO takes initiative.<br><span>You stay in control.</span></h2><p>Routine internal work can move forward autonomously. Actions that affect your money, accounts, private information or the outside world remain yours to approve.</p></div><div class="control-list"><div><span class="control-check">✓</span><div><b>Internal planning and delegation</b><small>Can proceed without interrupting you.</small></div><em>Autonomous</em></div><div><span class="control-lock">⌑</span><div><b>Publishing or sending externally</b><small>Requires your explicit approval.</small></div><em class="approval">Approval</em></div><div><span class="control-lock">⌑</span><div><b>Paid actions and budget changes</b><small>You decide before money is spent.</small></div><em class="approval">Approval</em></div><div><span class="control-lock">⌑</span><div><b>Production website projects</b><small>WebForge AI can prepare a brief; WebForge Signature handles custom builds with your consent.</small></div><em class="approval">Your choice</em></div></div></div></section>
-<section class="closing-section page-width"><div><div class="section-eyebrow">MAKE YOUR NEXT IDEA HAPPEN</div><h2>Start with the goal.<br><span>We'll organize the work.</span></h2><p>Your CEO is ready to map out the first steps.</p><a class="btn btn-primary" href="#ceo-chat">Talk to your CEO <span>↑</span></a></div></section>
+<section class="lab-method" id="how"><div class="lab-kicker">02 / A DIFFERENT WAY TO WORK</div><div class="lab-method-heading"><h2>Less managing.<br><em>More momentum.</em></h2><p>Instead of coordinating a collection of tools and people, work with one intelligent organization that keeps every part moving in the same direction.</p></div>
+<div class="lab-method-grid"><article><span>01</span><div class="method-symbol">↗</div><h3>Set the direction</h3><p>Describe what success looks like. Your CEO turns your ambition into a clear brief.</p><small>YOUR VISION</small></article><article><span>02</span><div class="method-symbol">⌘</div><h3>Bring in the right minds</h3><p>Managers coordinate specialists across the departments your goal requires.</p><small>CONNECTED EXPERTISE</small></article><article><span>03</span><div class="method-symbol">✳</div><h3>Move as one company</h3><p>Tasks, decisions and deliverables stay connected, visible and ready for review.</p><small>COORDINATED EXECUTION</small></article></div>
+</section>
+<section class="lab-teams" id="teams"><div class="lab-kicker">03 / ONE ORGANIZATION, SIX DISCIPLINES</div><div class="lab-teams-heading"><h2>Different minds.<br><em>One standard.</em></h2><p>Every team has a defined role. Your CEO brings them together around the work that matters.</p></div>
+<div class="lab-team-grid">
+<article><span>01</span><div>✳</div><h3>Creative</h3><p>Identity, visual concepts and creative direction.</p></article>
+<article><span>02</span><div>⌘</div><h3>Development</h3><p>Product thinking, architecture and technical planning.</p></article>
+<article><span>03</span><div>◉</div><h3>Business</h3><p>Research, models, market insight and strategy.</p></article>
+<article><span>04</span><div>↗</div><h3>Marketing</h3><p>Positioning, SEO, campaigns and content.</p></article>
+<article><span>05</span><div>▤</div><h3>Documentation</h3><p>Reports, presentations and structured knowledge.</p></article>
+<article><span>06</span><div>◎</div><h3>Operations</h3><p>Coordination, quality and resource planning.</p></article>
+</div></section>
+<section class="lab-principles" id="principles"><div class="lab-principles-copy"><div class="lab-kicker">04 / AUTONOMY WITH ACCOUNTABILITY</div><h2>Built to take initiative.<br><em>Designed to earn trust.</em></h2><p>Your CEO can organize routine internal work. Important actions stay under your control.</p></div><div class="lab-principle-list"><div><span>✓</span><b>Plan and delegate</b><small>Internal work can move forward autonomously.</small></div><div><span>↗</span><b>External actions</b><small>Publishing or sending requires your approval.</small></div><div><span>⌑</span><b>Money and accounts</b><small>Paid actions and sensitive access stay yours to approve.</small></div></div></section>
+<section class="lab-end"><div class="lab-kicker">THE NEXT MOVE IS YOURS</div><h2>Bring the ambition.<br><em>We'll bring the team.</em></h2><a class="lab-primary" href="#ceo-chat">Start with your CEO <span>↑</span></a><div class="lab-end-orbit"></div></section>
 </main>
-<footer class="site-footer"><div class="page-width footer-inner"><a class="brand" href="#home"><span class="brand-symbol">W</span><span>webforge<span class="brand-green">.ai</span></span></a><span>One goal. An entire AI company at work.</span><div><a href="#how">How it works</a><a href="dashboard.html">Dashboard</a><a href="#about">Trust & control</a></div></div><div class="page-width footer-bottom">© 2026 WebForge AI. A separate product by design.</div></footer>
-<div class="toast" id="toast" role="status" aria-live="polite"></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="auth.js"></script><script src="app.js"></script>
+<footer class="lab-footer"><a class="lab-brand" href="#home"><span class="lab-mark">W</span><span>webforge<span>.ai</span></span></a><p>One goal. An entire AI company at work.</p><div><a href="#how">How it works</a><a href="dashboard.html">Company HQ</a><a href="#principles">Trust & control</a></div><small>© 2026 WebForge AI. An independent AI platform by WebForge.</small></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="auth.js"></script><script src="app.js"></script>
 </body></html>
