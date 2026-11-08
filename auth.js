@@ -5,6 +5,7 @@ window.webforgeAuth = {
   client,
   async getSession() { const { data } = await client.auth.getSession(); return data.session; }
 };
+if (document.getElementById("authForm")) {
 const $ = id => document.getElementById(id);
 const form = $("authForm"), phoneForm = $("phoneForm"), title = $("authTitle"), description = $("authDescription");
 const submit = $("authSubmit"), status = $("authStatus"), signInTab = $("signInTab"), signUpTab = $("signUpTab");
@@ -121,3 +122,5 @@ client.auth.onAuthStateChange(event => {
   const { data } = await client.auth.getSession();
   if (data.session && !new URLSearchParams(location.search).has("reset")) goToWorkspace();
 })();
+
+}
