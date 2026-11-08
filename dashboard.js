@@ -1,0 +1,5 @@
+const toast=document.getElementById('toast');let toastTimer;function notify(message){if(!toast)return;toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);}
+const sign=document.getElementById('dashSignIn');if(sign)sign.addEventListener('click',()=>notify('Account creation and sign-in are planned for a later phase.'));
+const dismiss=document.getElementById('dismissBanner');if(dismiss)dismiss.addEventListener('click',()=>{const banner=dismiss.closest('.preview-banner');if(banner)banner.remove();});
+document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(b=>b.classList.toggle('active',b===button));const filter=button.dataset.filter;document.querySelectorAll('#taskRows tr').forEach(row=>{row.classList.toggle('hidden',filter!=='all'&&row.dataset.status!==filter);});}));
+document.querySelectorAll('.sidebar-nav a[href^="#"]').forEach(link=>link.addEventListener('click',()=>{document.querySelectorAll('.sidebar-nav a').forEach(a=>a.classList.remove('active'));link.classList.add('active');}));
