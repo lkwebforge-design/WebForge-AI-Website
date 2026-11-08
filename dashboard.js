@@ -74,6 +74,27 @@ function renderDepartments(departments, tasks) {
     return '<div><span class="dept-bullet"></span><span>'+escapeHtml(dept.name)+'</span><b>'+count+' tasks</b><div class="dept-track"><i style="width:'+width+'%"></i></div></div>';
   }).join("");
 }
+
+function renderActivity(events, tasks, projects, agents) {
+  const feed = document.querySelector(".activity-feed");
+  if (!feed) return;
+  if (!events.length) {
+    feed.innerHTML = '<div class="deliverable-empty"><span>◷</span><b>No activity yet.</b><p>Task updates and team actions will appear here as work progresses.</p></div>';
+    return;
+  }
+  const taskMap = Object.fromEntries(tasks.map(task => [task.id, task]));
+  const projectMap = Object.fromEntries(projects.map(project => [project.id, project.name]));
+  const agentMap = Object.fromEntries(agents.map(agent => [agent.id, agent.name]));
+  feed.innerHTML = events.map(event => {
+    const task = taskMap[event.task_id];
+    const actor = task ? (agentMap[task.assigned_agent_id] || "WebForge AI team") : "WebForge AI team";
+    const summary = event.summary || event.event_type.replace(/_/g, " ");
+    const context = task ? task.title + (projectMap[task.project_id] ? " · " + projectMap[task.project_id] : "") : "Workspace update";
+    const stamp = new Date(event.created_at).toLocaleString(undefined,{month:"short",day:"numeric",hour:"numeric",minute:"2-digit"});
+    const initial = actor.charAt(0).toUpperCase();
+    return '<div><span class="activity-avatar">'+escapeHtml(initial)+'</span><p><b>'+escapeHtml(actor)+'</b><span>'+escapeHtml(summary)+'</span><small>'+escapeHtml(context)+' · '+escapeHtml(stamp)+'</small></p><em>✓</em></div>';
+  }).join("");
+}
 async function loadWorkspace(user) {
   const name = user.user_metadata?.display_name || user.email?.split("@")[0] || "Founder";
   const first = name.split(/[ ._-]/)[0];
@@ -87,14 +108,15 @@ async function loadWorkspace(user) {
   document.getElementById("previewBannerText").textContent = "Projects and records below are loaded from your WebForge AI account. AI planning and task orchestration are being connected in stages.";
   document.getElementById("dashDate").textContent = new Date().toLocaleDateString(undefined,{weekday:"long",month:"long",day:"numeric",year:"numeric"}).toUpperCase();
 
-  const [projectsResult,tasksResult,agentsResult,departmentsResult,deliverablesResult] = await Promise.all([
+  const [projectsResult,tasksResult,agentsResult,departmentsResult,deliverablesResult,eventsResult] = await Promise.all([
     client.from("projects").select("id,name,goal,status,progress,created_at").order("created_at",{ascending:false}).limit(12),
     client.from("tasks").select("id,project_id,department_id,assigned_agent_id,title,status,priority,due_at,created_at").order("created_at",{ascending:false}).limit(30),
     client.from("agents").select("id,department_id,name,role,agent_type,description,model_id").eq("active",true),
     client.from("departments").select("id,name,description").order("name"),
-    client.from("deliverables").select("id,title,description,file_type,status,created_at").order("created_at",{ascending:false}).limit(10)
+    client.from("deliverables").select("id,title,description,file_type,status,created_at").order("created_at",{ascending:false}).limit(10),
+    client.from("task_events").select("id,task_id,event_type,summary,created_at").order("created_at",{ascending:false}).limit(8)
   ]);
-  for (const result of [projectsResult,tasksResult,agentsResult,departmentsResult,deliverablesResult]) {
+  for (const result of [projectsResult,tasksResult,agentsResult,departmentsResult,deliverablesResult,eventsResult]) {
     if (result.error) throw result.error;
   }
   const projects = projectsResult.data || [];
@@ -102,6 +124,7 @@ async function loadWorkspace(user) {
   const agents = agentsResult.data || [];
   const departments = departmentsResult.data || [];
   const deliverables = deliverablesResult.data || [];
+  const events = eventsResult.data || [];
   const activeProjects = projects.filter(project => !["completed","archived","failed"].includes(project.status)).length;
   const openTasks = tasks.filter(task => !["approved","cancelled","failed"].includes(task.status)).length;
   const inReview = tasks.filter(task => ["submitted","under_review","revision_requested"].includes(task.status)).length;
@@ -114,6 +137,7 @@ async function loadWorkspace(user) {
   renderTasks(tasks,projects,agents,departments);
   renderManagers(agents);
   renderDepartments(departments,tasks);
+  renderActivity(events,tasks,projects,agents);
   const deliverableBox = document.getElementById("deliverablesContent");
   if (deliverableBox) {
     deliverableBox.innerHTML = deliverables.length
