@@ -14,14 +14,27 @@
 <section class="auth-card">
 <div class="auth-mark">W</div>
 <div class="eyebrow">YOUR AI COMPANY, ORGANIZED</div>
-<h1 id="authTitle">Welcome back.</h1>
-<p id="authDescription">Sign in to continue to your WebForge AI workspace.</p>
+<h1 id="authTitle">Welcome to WebForge AI.</h1>
+<p id="authDescription">Sign in to your workspace and put your AI company to work.</p>
+<div class="social-auth" id="socialAuth">
+<button class="social-button" id="googleSignIn" type="button"><span class="provider-icon google-icon">G</span><span>Continue with Google</span></button>
+<button class="social-button" id="githubSignIn" type="button"><svg class="provider-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.31-3.76-1.31-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.7 1.15 1.7 1.15.99 1.7 2.6 1.21 3.23.92.1-.72.39-1.21.7-1.49-2.48-.28-5.09-1.24-5.09-5.53 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.05-1.14 3.05-1.14.61 1.54.23 2.68.11 2.96.72.78 1.15 1.78 1.15 3 0 4.3-2.61 5.25-5.1 5.52.4.35.75 1.03.75 2.08v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/></svg><span>Continue with GitHub</span></button>
+<button class="social-button social-chatgpt" id="chatgptSignIn" type="button" disabled aria-describedby="chatgptNote"><svg class="provider-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.28 9.82a5.6 5.6 0 0 0-.48-4.6 5.66 5.66 0 0 0-6.1-2.72A5.65 5.65 0 0 0 6.12 4.6a5.6 5.6 0 0 0-3.72 2.72 5.66 5.66 0 0 0 .7 6.66 5.6 5.6 0 0 0 .48 4.6 5.66 5.66 0 0 0 6.1 2.72 5.65 5.65 0 0 0 9.58-2.1 5.6 5.6 0 0 0 3.72-2.72 5.66 5.66 0 0 0-.7-6.66ZM9.2 19.78a4.18 4.18 0 0 1-4.78-2.04 4.13 4.13 0 0 1-.42-2.75l.1.06 4.93 2.85c.25.14.56.14.81 0l6.02-3.48v2.03a.16.16 0 0 1-.08.14l-4.98 2.88a4.16 4.16 0 0 1-1.6.31Zm-1.26-7.2-2.02-1.17a.16.16 0 0 1-.08-.14V8.4a4.17 4.17 0 0 1 6.86-3.2l-.1.06-4.93 2.85a.81.81 0 0 0-.4.7v3.77Zm1.1-2.34 5.35-3.09 5.35 3.09v6.18l-5.35 3.09-5.35-3.09v-6.18Z"/></svg><span>Continue with ChatGPT</span><small>Partner access required</small></button>
+<p class="provider-note" id="chatgptNote">ChatGPT sign-in is currently limited to approved integrations. We won't pretend this button works until WebForge AI is authorised.</p>
+</div>
+<div class="auth-divider"><span>or continue with</span></div>
+<div class="auth-method-tabs"><button class="method-tab active" id="emailMethod" type="button">Email</button><button class="method-tab" id="phoneMethod" type="button">Phone</button></div>
 <div class="auth-tabs"><button class="auth-tab active" id="signInTab" type="button">Sign in</button><button class="auth-tab" id="signUpTab" type="button">Create account</button></div>
 <form id="authForm">
 <label id="nameLabel" class="auth-field hidden">Your name<input id="displayName" type="text" autocomplete="name" placeholder="Your name"></label>
-<label class="auth-field">Email address<input id="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
-<label class="auth-field">Password<input id="password" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required></label>
+<label class="auth-field" id="emailField">Email address<input id="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+<label class="auth-field" id="passwordField">Password<input id="password" type="password" autocomplete="current-password" minlength="8" placeholder="At least 8 characters" required></label>
 <button class="btn btn-primary auth-submit" id="authSubmit" type="submit">Sign in <span>→</span></button>
+</form>
+<form id="phoneForm" class="hidden">
+<label class="auth-field">Mobile number<input id="phoneNumber" type="tel" autocomplete="tel" placeholder="+94 77 123 4567" inputmode="tel"></label>
+<label class="auth-field hidden" id="otpField">Verification code<input id="phoneOtp" type="text" inputmode="numeric" autocomplete="one-time-code" maxlength="8" placeholder="Enter the code sent to you"></label>
+<button class="btn btn-primary auth-submit" id="phoneSubmit" type="submit">Send verification code <span>→</span></button>
 </form>
 <button class="forgot-button" id="forgotPassword" type="button">Forgot password?</button>
 <form id="resetForm" class="hidden">
@@ -32,7 +45,7 @@
 <div class="auth-status" id="authStatus" role="status" aria-live="polite"></div>
 <div class="auth-footnote">Your workspace is private. Your projects and conversations belong to your account.</div>
 </section>
-<div class="auth-side-note"><span class="auth-side-icon">✳</span><b>One goal. An entire AI company.</b><span>Your CEO, six department managers and specialist teams are ready to help organize your work.</span></div>
+<div class="auth-side-note"><span class="auth-side-icon">✳</span><b>One goal. An entire AI company.</b><span>Your CEO, department managers and specialist teams are ready to help organize your work.</span></div>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="auth.js"></script>
