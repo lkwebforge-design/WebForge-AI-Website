@@ -24,6 +24,11 @@
 <button class="btn btn-primary auth-submit" id="authSubmit" type="submit">Sign in <span>→</span></button>
 </form>
 <button class="forgot-button" id="forgotPassword" type="button">Forgot password?</button>
+<form id="resetForm" class="hidden">
+<label class="auth-field">New password<input id="newPassword" type="password" minlength="8" autocomplete="new-password" placeholder="At least 8 characters" required></label>
+<label class="auth-field">Confirm new password<input id="confirmPassword" type="password" minlength="8" autocomplete="new-password" placeholder="Repeat your new password" required></label>
+<button class="btn btn-primary auth-submit" type="submit">Update password <span>→</span></button>
+</form>
 <div class="auth-status" id="authStatus" role="status" aria-live="polite"></div>
 <div class="auth-footnote">Your workspace is private. Your projects and conversations belong to your account.</div>
 </section>
