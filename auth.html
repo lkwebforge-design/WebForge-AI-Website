@@ -22,9 +22,9 @@
 <button class="social-button social-chatgpt" id="chatgptSignIn" type="button" disabled aria-describedby="chatgptNote"><svg class="provider-svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22.28 9.82a5.6 5.6 0 0 0-.48-4.6 5.66 5.66 0 0 0-6.1-2.72A5.65 5.65 0 0 0 6.12 4.6a5.6 5.6 0 0 0-3.72 2.72 5.66 5.66 0 0 0 .7 6.66 5.6 5.6 0 0 0 .48 4.6 5.66 5.66 0 0 0 6.1 2.72 5.65 5.65 0 0 0 9.58-2.1 5.6 5.6 0 0 0 3.72-2.72 5.66 5.66 0 0 0-.7-6.66ZM9.2 19.78a4.18 4.18 0 0 1-4.78-2.04 4.13 4.13 0 0 1-.42-2.75l.1.06 4.93 2.85c.25.14.56.14.81 0l6.02-3.48v2.03a.16.16 0 0 1-.08.14l-4.98 2.88a4.16 4.16 0 0 1-1.6.31Zm-1.26-7.2-2.02-1.17a.16.16 0 0 1-.08-.14V8.4a4.17 4.17 0 0 1 6.86-3.2l-.1.06-4.93 2.85a.81.81 0 0 0-.4.7v3.77Zm1.1-2.34 5.35-3.09 5.35 3.09v6.18l-5.35 3.09-5.35-3.09v-6.18Z"/></svg><span>Continue with ChatGPT</span><small>Partner access required</small></button>
 <p class="provider-note" id="chatgptNote">ChatGPT sign-in is currently limited to approved integrations. We won't pretend this button works until WebForge AI is authorised.</p>
 </div>
-<div class="auth-divider"><span>or continue with</span></div>
+<div class="auth-divider" id="auth-divider"><span>or continue with</span></div>
 <div class="auth-method-tabs"><button class="method-tab active" id="emailMethod" type="button">Email</button><button class="method-tab" id="phoneMethod" type="button">Phone</button></div>
-<div class="auth-tabs"><button class="auth-tab active" id="signInTab" type="button">Sign in</button><button class="auth-tab" id="signUpTab" type="button">Create account</button></div>
+<div class="auth-tabs" id="auth-tabs"><button class="auth-tab active" id="signInTab" type="button">Sign in</button><button class="auth-tab" id="signUpTab" type="button">Create account</button></div>
 <form id="authForm">
 <label id="nameLabel" class="auth-field hidden">Your name<input id="displayName" type="text" autocomplete="name" placeholder="Your name"></label>
 <label class="auth-field" id="emailField">Email address<input id="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
