@@ -44,7 +44,14 @@ async function socialSignIn(provider) {
     provider,
     options: { redirectTo: location.origin + "/auth.html?oauth=1" }
   });
-  if (error) showStatus(error.message || "Could not start sign-in. Check the provider configuration.");
+  if (error) {
+    const message = String(error.message || "");
+    if (/unsupported provider|provider is not enabled/i.test(message)) {
+      showStatus("Google sign-in isn't enabled in this WebForge AI project yet. Use email sign-in for now, or ask the administrator to finish Google OAuth setup in Supabase.");
+    } else {
+      showStatus(message || "Could not start sign-in. Check the provider configuration.");
+    }
+  }
 }
 $("googleSignIn").addEventListener("click", () => socialSignIn("google"));
 $("emailMethod").addEventListener("click", () => setMethod("email"));
