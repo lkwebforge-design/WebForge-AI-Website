@@ -129,7 +129,7 @@ async function loadWorkspace(user) {
 const sign = document.getElementById("dashSignIn");
 if (sign) sign.addEventListener("click", async () => {
   const {data} = await client.auth.getSession();
-  if (!data.session) return location.href = "auth.html";
+  if (!data.session) return location.href = "auth.html?next=dashboard.html";
   await client.auth.signOut();
   location.href = "index.html";
 });
@@ -152,7 +152,7 @@ document.querySelectorAll(".sidebar-nav a[href^='#']").forEach(link => link.addE
   if (error) return notify(error.message);
   const session = data.session;
   if (!session) {
-    if (sign) sign.innerHTML = 'Sign in <span>↗</span>';
+    location.replace("auth.html?next=dashboard.html");
     return;
   }
   if (sign) sign.textContent = "Sign out";
