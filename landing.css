@@ -40,3 +40,43 @@
 @media(max-width:850px){.lab-nav,.lab-hero,.lab-method,.lab-teams{width:calc(100% - 44px)}.lab-nav{gap:18px}.lab-links{gap:17px}.lab-hero{grid-template-columns:1fr .85fr;gap:10px}.lab-hero h1{font-size:clamp(55px,8vw,76px);letter-spacing:-4px}.lab-hero-art{transform:scale(.86);transform-origin:center}.lab-principles{grid-template-columns:1fr 1fr;gap:40px}.lab-footer{grid-template-columns:auto 1fr}.lab-footer>div{grid-column:1/-1}}
 @media(max-width:640px){.landing-page .lab-header{height:68px}.lab-nav{width:calc(100% - 36px);gap:12px}.lab-brand{font-size:18px}.lab-actions{margin-left:auto;gap:12px}.lab-hq{display:none}.lab-signin{padding:8px 13px}.lab-menu{display:flex;flex-direction:column;gap:5px;border:0;background:transparent;padding:9px}.lab-menu i{width:19px;height:1.5px;background:#090b09}.lab-links{display:none;position:absolute;top:67px;left:0;right:0;padding:20px 22px;background:#fff;border-bottom:1px solid #e5ebe6;flex-direction:column;gap:18px}.lab-links.open{display:flex}.lab-hero{width:calc(100% - 40px);grid-template-columns:1fr;padding:66px 0 55px;gap:12px;min-height:0}.lab-hero h1{font-size:clamp(58px,15vw,82px);letter-spacing:-4.5px;margin:22px 0}.lab-lede{font-size:16px}.lab-hero-art{height:350px;transform:none;margin-top:8px}.lab-orbit-a{width:310px}.lab-orbit-b{width:235px}.lab-core{width:150px;height:150px}.core-w{font-size:67px}.core-caption{bottom:26px;font-size:6px}.orbit-node{min-width:112px;padding:10px 11px}.orbit-node b{font-size:7px}.node-one{top:22px;left:0}.node-two{top:95px;right:0}.node-three{bottom:66px;left:0}.node-four{bottom:16px;right:0}.art-index{top:0}.lab-hero-actions{gap:18px;flex-wrap:wrap}.lab-proof{margin-top:30px}.lab-prompt-section{padding:72px 20px 80px}.lab-section-top,.lab-method-heading,.lab-teams-heading{grid-template-columns:1fr;gap:18px;margin-bottom:32px}.lab-section-top h2,.lab-method-heading h2,.lab-teams-heading h2,.lab-principles h2{font-size:45px}.lab-chat-shell{padding:17px 14px 15px;border-radius:17px}.lab-live{font-size:7px}.lab-examples{gap:7px}.lab-examples>span{width:100%}.lab-examples button{font-size:10px}.lab-method,.lab-teams{width:calc(100% - 40px);padding:78px 0}.lab-method-grid{grid-template-columns:1fr}.lab-method-grid article,.lab-method-grid article+article{padding:22px 0;border-left:0;border-bottom:1px solid #e5eae5}.lab-method-grid article:last-child{border-bottom:0}.method-symbol{margin:18px 0 10px}.lab-method-grid small{margin-top:18px}.lab-team-grid{grid-template-columns:repeat(2,1fr)}.lab-team-grid article{min-height:190px;padding:19px 13px 20px 0}.lab-team-grid article:nth-child(3n+2),.lab-team-grid article:nth-child(3n){padding-left:0;border-left:0}.lab-team-grid article:nth-child(even){padding-left:15px;border-left:1px solid #e5eae5}.lab-team-grid h3{font-size:18px}.lab-team-grid p{font-size:12px}.lab-principles{padding:75px 22px;grid-template-columns:1fr;gap:30px}.lab-end{padding:85px 20px 95px}.lab-end h2{font-size:50px;letter-spacing:-2.6px}.lab-footer{padding:28px 20px 20px;grid-template-columns:1fr;gap:12px}.lab-footer>div{flex-wrap:wrap;gap:18px}.lab-footer>small{grid-column:auto}.lab-footer p{margin:0}}
 @media(prefers-reduced-motion:reduce){.landing-page *{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* WEBFORGE AI — premium black / green / white visual system */
+.landing-page{background:#070907!important;color:#f5f7f5!important;color-scheme:dark}
+.landing-page .lab-header{background:rgba(7,9,7,.94)!important;border-bottom:1px solid #202820!important}
+.landing-page .lab-brand,.landing-page .lab-links a,.landing-page .lab-hq,.landing-page .lab-signin{color:#f4f7f4}
+.landing-page .lab-signin{border-color:#354239}
+.landing-page .lab-mark{background:#16834a;color:#fff}
+.landing-page .lab-hero,.landing-page .lab-method,.landing-page .lab-teams,.landing-page .lab-end{background:#070907!important;color:#f5f7f5!important}
+.landing-page .lab-hero h1,.landing-page .lab-section-top h2,.landing-page .lab-method-heading h2,.landing-page .lab-teams-heading h2,.landing-page .lab-end h2,.landing-page .lab-method-grid h3,.landing-page .lab-team-grid h3{color:#f5f7f5}
+.landing-page .lab-lede,.landing-page .lab-section-top>p,.landing-page .lab-method-heading>p,.landing-page .lab-teams-heading>p,.landing-page .lab-method-grid p,.landing-page .lab-team-grid p{color:#b7c0b8}
+.landing-page .lab-proof{color:#aab5ac}
+.landing-page .lab-orbit{border-color:#24362a}
+.landing-page .lab-orbit-b{border-color:#31533b}
+.landing-page .orbit-node{background:#111712;border-color:#2a3b2e;color:#f4f7f4;box-shadow:0 12px 35px rgba(0,0,0,.32)}
+.landing-page .art-index{color:#a0aca2}
+.landing-page .lab-prompt-section{background:#0d120e!important;color:#f5f7f5!important}
+.landing-page .lab-chat-shell{background:#111712;border-color:#2b3b2e;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.landing-page .lab-chat-head{border-color:#29362c}
+.landing-page .lab-ceo-id b,.landing-page .message-content p{color:#f0f4f0}
+.landing-page .lab-ceo-id small,.landing-page .lab-live,.landing-page .chat-input-footer>span{color:#a4b0a6}
+.landing-page .lab-ceo-mark,.landing-page .message-avatar{background:#16834a;color:#fff}
+.landing-page .message-content p{color:#dce4dd}
+.landing-page .lab-examples button{background:#151e17;border-color:#334238;color:#dce5dd}
+.landing-page .lab-chat-form{background:#0a100c!important;border-color:#35463a!important}
+.landing-page .chat-input-area textarea{color:#f5f7f5!important}
+.landing-page .chat-input-area textarea::placeholder{color:#849187}
+.landing-page .lab-chat-form .chat-input-footer>span{color:#98a59a}
+.landing-page .chat-disclaimer{color:#9aa69c}
+.landing-page .user-message{background:#173522;color:#e8f3eb}
+.landing-page .lab-method-grid,.landing-page .lab-team-grid,.landing-page .lab-method-grid article+article,.landing-page .lab-team-grid article{border-color:#28342b}
+.landing-page .lab-method-grid small{color:#91a095}
+.landing-page .lab-principles{background:#101811!important;border-top:1px solid #27372b;border-bottom:1px solid #27372b}
+.landing-page .lab-end-orbit{border-color:#26382b}
+.landing-page .lab-footer{background:#070907!important;border-color:#26342a;color:#f5f7f5}
+.landing-page .lab-footer p,.landing-page .lab-footer>small{color:#9ba79d}
+.landing-page .lab-footer>small{border-color:#26342a}
+.landing-page .lab-footer>div a{color:#d8e1d9}
+.landing-page .lab-menu i{background:#f5f7f5}
+@media(max-width:640px){.landing-page .lab-links{background:#0b100c;border-color:#29372c}.landing-page .lab-links a{color:#f5f7f5}}
