@@ -1,17 +1,131 @@
-const toast=document.getElementById('toast');let toastTimer;
-function notify(message){if(!toast)return;toast.textContent=message;toast.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);}
-const menu=document.getElementById('mobileMenu'),nav=document.getElementById('mainNav');
-if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');}));}
-const signIn=document.getElementById('signInLater');if(signIn)signIn.addEventListener('click',()=>notify('Sign-in is planned for a later development phase.'));
-const chatForm=document.getElementById('chatForm'),chatInput=document.getElementById('chatInput'),messages=document.getElementById('chatMessages');
-const samplePlans=[
-{title:'A brand launch project plan',summary:'A launch can be organized into connected workstreams. The teams below are suggested starting points; a real CEO service will need to validate your brief and execute each assignment.',tasks:[['Business','Audience, competitors and market opportunity','First'],['Creative','Brand direction and visual concepts','Next'],['Marketing','Positioning and launch campaign','Next'],['Documentation','Launch brief and action checklist','Next'],['Operations','Milestones, dependencies and review','Next']]},
-{title:'A business research plan',summary:'Start by validating the opportunity, understanding the audience and checking the competitive landscape before committing resources.',tasks:[['Business','Market and competitor research','First'],['Business','Customer segments and demand signals','Next'],['Marketing','Positioning opportunities','Next'],['Documentation','Research findings report','Next'],['Operations','Source and quality review','Next']]},
-{title:'A marketing campaign plan',summary:'The campaign can be structured around audience insight, a clear message, creative direction and measurable launch activities.',tasks:[['Business','Audience and competitor insights','First'],['Marketing','Campaign strategy and messaging','Next'],['Marketing','Content calendar and channels','Next'],['Creative','Visual direction concepts','Next'],['Documentation','Campaign plan and KPI sheet','Next']]}
-];
-function esc(value){return String(value).replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
-function classify(goal){if(/marketing|campaign|content|social|seo|promotion/i.test(goal))return 2;if(/research|market|competitor|customer|business idea|meal/i.test(goal))return 1;return 0;}
-function submitGoal(goal){if(!messages)return;const user=document.createElement('div');user.className='user-message';user.textContent=goal;messages.appendChild(user);const plan=samplePlans[classify(goal)];const answer=document.createElement('div');answer.className='demo-answer';answer.innerHTML='<small>ILLUSTRATIVE PLAN · NOT AN AI EXECUTION</small><h3>'+plan.title+'</h3><p>'+plan.summary+'</p><div class="demo-task-list">'+plan.tasks.map(t=>'<div class="demo-task"><span><b>'+esc(t[0])+'</b> · '+esc(t[1])+'</span><small>'+esc(t[2])+'</small></div>').join('')+'</div>';messages.appendChild(answer);const foot=document.createElement('div');foot.className='message-row';foot.style.marginTop='13px';foot.innerHTML='<span class="message-avatar">W</span><div class="message-content"><small>CEO PREVIEW</small><p>This is a sample plan generated in your browser to demonstrate the intended experience. It has not contacted AI models or assigned real agents. We will connect the live orchestration engine in a later phase.</p></div>';messages.appendChild(foot);messages.scrollTop=messages.scrollHeight;answer.scrollIntoView({behavior:'smooth',block:'nearest'});}
-if(chatForm){chatForm.addEventListener('submit',event=>{event.preventDefault();const goal=chatInput.value.trim();if(!goal){chatInput.focus();return;}submitGoal(goal);chatInput.value='';notify('Sample project plan displayed.');});}
-document.querySelectorAll('[data-prompt]').forEach(button=>button.addEventListener('click',()=>{const goal=button.dataset.prompt;if(chatInput){chatInput.value=goal;submitGoal(goal);chatInput.value='';notify('Sample project plan displayed.');}}));
-document.querySelectorAll('a[href^="#"]').forEach(link=>link.addEventListener('click',event=>{const target=document.querySelector(link.getAttribute('href'));if(target){event.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});history.replaceState(null,'',link.getAttribute('href'));}}));
+const API_BASE = "https://webforge-ai-api.lkwebforge.workers.dev";
+const toast = document.getElementById("toast");
+let toastTimer;
+function notify(message) {
+  if (!toast) return;
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove("show"), 2800);
+}
+const menu = document.getElementById("mobileMenu");
+const nav = document.getElementById("mainNav");
+if (menu && nav) {
+  menu.addEventListener("click", () => {
+    const open = nav.classList.toggle("open");
+    menu.setAttribute("aria-expanded", String(open));
+  });
+  nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+    nav.classList.remove("open");
+    menu.setAttribute("aria-expanded", "false");
+  }));
+}
+const chatForm = document.getElementById("chatForm");
+const chatInput = document.getElementById("chatInput");
+const messages = document.getElementById("chatMessages");
+const sendButton = chatForm?.querySelector('button[type="submit"]');
+
+function addMessage(role, content, label) {
+  const row = document.createElement("div");
+  row.className = role === "user" ? "user-message" : "message-row";
+  if (role === "user") {
+    row.textContent = content;
+  } else {
+    const avatar = document.createElement("span");
+    avatar.className = "message-avatar";
+    avatar.textContent = "W";
+    const body = document.createElement("div");
+    body.className = "message-content";
+    const heading = document.createElement("small");
+    heading.textContent = label || "WEBFORGE AI · CEO";
+    const paragraph = document.createElement("p");
+    paragraph.style.whiteSpace = "pre-wrap";
+    paragraph.textContent = content;
+    body.append(heading, paragraph);
+    row.append(avatar, body);
+  }
+  messages.appendChild(row);
+  messages.scrollTop = messages.scrollHeight;
+  return row;
+}
+
+async function submitGoal(goal) {
+  if (!messages || !goal) return;
+  const auth = window.webforgeAuth;
+  const session = auth ? await auth.getSession() : null;
+  if (!session) {
+    addMessage("user", goal);
+    const prompt = document.createElement("div");
+    prompt.className = "demo-answer";
+    prompt.innerHTML = '<small>ACCOUNT REQUIRED</small><h3>Sign in to speak with your CEO.</h3><p>Your goal will be sent to the live WebForge AI CEO after you sign in.</p><a class="plain-link" href="auth.html">Sign in or create your account →</a>';
+    messages.appendChild(prompt);
+    messages.scrollTop = messages.scrollHeight;
+    return;
+  }
+
+  addMessage("user", goal);
+  const loading = addMessage("assistant", "Reviewing your goal and preparing a response…", "WEBFORGE AI · CEO");
+  if (sendButton) sendButton.disabled = true;
+  try {
+    const response = await fetch(API_BASE + "/api/ai/run", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "authorization": "Bearer " + session.access_token
+      },
+      body: JSON.stringify({ agentId: "ceo", prompt: goal })
+    });
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || "The CEO could not complete this request.");
+    const result = payload.result;
+    const answer = typeof result === "string"
+      ? result
+      : result?.response || result?.output_text || result?.text || JSON.stringify(result, null, 2);
+    loading.querySelector(".message-content p").textContent = answer;
+    loading.querySelector(".message-content small").textContent = "WEBFORGE AI · " + (payload.agent?.name || "CEO") + " · " + (payload.model || "CLOUDFLARE WORKERS AI");
+    const note = document.createElement("div");
+    note.className = "chat-disclaimer";
+    note.textContent = "Live AI response. The full autonomous project workflow and deliverable execution are being added in the next build phase.";
+    messages.appendChild(note);
+  } catch (error) {
+    loading.querySelector(".message-content p").textContent = error.message || "Something went wrong. Please try again.";
+    loading.querySelector(".message-content small").textContent = "WEBFORGE AI · CONNECTION NOTICE";
+  } finally {
+    if (sendButton) sendButton.disabled = false;
+    messages.scrollTop = messages.scrollHeight;
+  }
+}
+
+if (chatForm) {
+  chatForm.addEventListener("submit", async event => {
+    event.preventDefault();
+    const goal = chatInput.value.trim();
+    if (!goal) { chatInput.focus(); return; }
+    chatInput.value = "";
+    await submitGoal(goal);
+  });
+}
+document.querySelectorAll("[data-prompt]").forEach(button => {
+  button.addEventListener("click", () => {
+    const goal = button.dataset.prompt;
+    if (chatInput) chatInput.value = goal;
+    submitGoal(goal);
+  });
+});
+document.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener("click", event => {
+  const target = document.querySelector(link.getAttribute("href"));
+  if (target) {
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", link.getAttribute("href"));
+  }
+}));
+(async () => {
+  const signIn = document.getElementById("signInLater");
+  if (!signIn || !window.webforgeAuth) return;
+  const session = await window.webforgeAuth.getSession();
+  if (session) {
+    signIn.href = "dashboard.html";
+    signIn.innerHTML = "My workspace <span>↗</span>";
+  }
+})();
