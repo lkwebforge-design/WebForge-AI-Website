@@ -12,15 +12,15 @@
 <a class="brand" href="#home" aria-label="WebForge AI home"><span class="brand-symbol">W</span><span>webforge<span class="brand-green">.ai</span></span></a>
 <button class="mobile-menu" id="mobileMenu" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
 <nav class="main-nav" id="mainNav"><a href="#how">How it works</a><a href="#departments">Departments</a><a href="#workspace">Your workspace</a><a href="#about">About</a></nav>
-<div class="nav-right"><a class="nav-dashboard" href="dashboard.html">Dashboard preview</a><button class="signin-button" type="button" id="signInLater">Sign in <span>↗</span></button></div>
+<div class="nav-right"><a class="nav-dashboard" href="dashboard.html">Dashboard preview</a><a class="signin-button" href="auth.html" id="signInLater">Sign in <span>↗</span></a></div>
 </div></header>
 <main id="home">
 <section class="chat-section page-width" id="ceo-chat">
-<div class="chat-heading"><div><div class="eyebrow">START HERE</div><h2>What would you like to achieve?</h2><p>Tell your CEO the outcome. We'll show you how the team could organize the work.</p></div><div class="chat-heading-badge"><span class="ceo-avatar">W</span><span><b>Your CEO</b><small>Executive workspace · demo</small></span></div></div>
+<div class="chat-heading"><div><div class="eyebrow">START HERE</div><h2>What would you like to achieve?</h2><p>Tell your CEO the outcome. We'll show you how the team could organize the work.</p></div><div class="chat-heading-badge"><span class="ceo-avatar">W</span><span><b>Your CEO</b><small>Executive workspace · live AI</small></span></div></div>
 <div class="chat-card"><div class="chat-messages" id="chatMessages"><div class="message-row"><span class="message-avatar">W</span><div class="message-content"><small>WEBFORGE AI · CEO</small><p>Hi! I'm your CEO. Tell me what you're working towards — a business idea, a launch, research or a project. I'll map out which teams should help and what the first steps could look like.</p></div></div></div>
 <div class="quick-prompts"><span>TRY AN EXAMPLE</span><button data-prompt="I want to launch a modern clothing brand.">Launch a clothing brand</button><button data-prompt="Research the market for a healthy meal-prep business.">Research a business idea</button><button data-prompt="Create a marketing plan for my new product.">Plan a marketing campaign</button></div>
 <form class="chat-input-area" id="chatForm"><label class="sr-only" for="chatInput">Describe your goal</label><textarea id="chatInput" rows="2" maxlength="600" placeholder="Describe what you want to achieve..." required></textarea><div class="chat-input-footer"><span>↳ Your CEO will organize the next steps</span><button class="send-button" type="submit" aria-label="Send goal">Send <span>↑</span></button></div></form>
-<div class="chat-disclaimer">Interactive product preview. AI execution and account sign-in are not connected yet.</div></div>
+<div class="chat-disclaimer">Sign in to talk to your live CEO. Project execution and team orchestration are being built in stages.</div></div>
 </section>
 <section class="hero page-width">
 <div class="hero-intro">
@@ -67,5 +67,5 @@
 <section class="closing-section page-width"><div><div class="section-eyebrow">MAKE YOUR NEXT IDEA HAPPEN</div><h2>Start with the goal.<br><span>We'll organize the work.</span></h2><p>Your CEO is ready to map out the first steps.</p><a class="btn btn-primary" href="#ceo-chat">Talk to your CEO <span>↑</span></a></div></section>
 </main>
 <footer class="site-footer"><div class="page-width footer-inner"><a class="brand" href="#home"><span class="brand-symbol">W</span><span>webforge<span class="brand-green">.ai</span></span></a><span>One goal. An entire AI company at work.</span><div><a href="#how">How it works</a><a href="dashboard.html">Dashboard</a><a href="#about">Trust & control</a></div></div><div class="page-width footer-bottom">© 2026 WebForge AI. A separate product by design.</div></footer>
-<div class="toast" id="toast" role="status" aria-live="polite"></div><script src="app.js"></script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="auth.js"></script><script src="app.js"></script>
 </body></html>
